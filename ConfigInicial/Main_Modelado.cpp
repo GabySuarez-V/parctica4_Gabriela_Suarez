@@ -1,6 +1,6 @@
-//practica 4.Modelado geometrico.
-//NOMBRE: Suarez Velasco Gabriela 
-//Fecha:24/02/25
+//practica 4.Modelado geometrico.		//NOMBRE: Suarez Velasco Gabriela 
+//Fecha:01/03/25					   // Num cuenta: 3173135212
+
 
 #include<iostream>
 
@@ -127,6 +127,7 @@ int main() {
 		0.5f,  0.5f,  0.5f,  1.0f, 0.2f,0.5f,
 		-0.5f,  0.5f,  0.5f, 1.0f, 0.2f,0.5f,
 		-0.5f,  0.5f, -0.5f, 1.0f, 0.2f,0.5f,
+
 	};
 
 
@@ -201,44 +202,130 @@ int main() {
 
 		glBindVertexArray(VAO);
 	
-		//SE LO COMENTE AL PROFE L
-	   /* model = glm::mat4(1.0f);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		glDrawArrays(GL_TRIANGLES, 0, 36);
-		glBindVertexArray(0);*/ 
-
-	    //DESDE AQUI
+		//PINGUINO
+		//cuerpo inicial
 		model = glm::mat4(1.0f);
-		model = glm::scale(model, glm::vec3(3.0f, 0.25f, 2.0f)); //ancho grosor profundidad
-		model = glm::translate(model, glm::vec3(0.0f, 0.75f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.50f, 3.0f, 1.10f)); //ancho alto profundidad
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
-		//pata 1 de la mesa
+		//pata izquierda
 		model = glm::mat4(1.0f);
-		model = glm::scale(model, glm::vec3(0.35f, 1.0f, 0.35f));
-		model = glm::translate(model, glm::vec3(3.0f, -0.45f, 1.2f));
+		model = glm::scale(model, glm::vec3(0.25f, 0.45f, 0.30f)); //ancho alto profundidad 
+		model = glm::translate(model, glm::vec3(-1.50f, -3.9f, -0.f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//pata derecha
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.25f, 0.45f, 0.30f)); //ancho alto profundidad 
+		model = glm::translate(model, glm::vec3(1.50f, -3.9f, -0.f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//patas corta izquierda
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.25f, 0.33f, -0.50f)); //ancho alto profundidad 
+		model = glm::translate(model, glm::vec3(-1.50f, -5.5f, -0.30f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//patas corta derecha
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.25f, 0.33f, -0.50f)); //ancho alto profundidad 
+		model = glm::translate(model, glm::vec3(1.50f, -5.5f, -0.45f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//pancita superior
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(1.50f, 1.0f, 1.10f)); //ancho alto profundidad 
+		model = glm::translate(model, glm::vec3(0.0f, 0.80f, 0.25f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//pancita enmedio
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(1.50f, 1.0f, 1.10f)); //ancho alto profundidad 
+		model = glm::translate(model, glm::vec3(0.0f, -0.20f, 0.20f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//pancita inferior
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(1.50f, 1.0f, 1.10f)); //ancho alto profundidad 1.50f, 3.0f, 1.10f)
+		model = glm::translate(model, glm::vec3(0.0f, -0.80f, 0.15f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//Cabeza
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(1.50f, 1.0f, 1.10f)); //ancho alto profundidad 
+		model = glm::translate(model, glm::vec3(0.0f, 1.50f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//pico
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.45f, 0.25f, 1.15f)); //ancho alto profundidad 
+		model = glm::translate(model, glm::vec3(0.0f, 6.0f, 0.40f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//pico superior 
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.45f, 0.25f, 1.15f)); //ancho alto profundidad 
+		model = glm::translate(model, glm::vec3(0.0f, 7.0f, 0.25f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//ojo Izquierdo
+		model = glm::mat4(1.0f); //negro
+		model = glm::scale(model, glm::vec3(0.15f, 0.15f, 0.15f)); //ancho alto profundidad
+		model = glm::translate(model, glm::vec3(-4.0f, 12.5f, 4.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+	
+		//ojo Derecho
+		model = glm::mat4(1.0f); //negro
+		model = glm::scale(model, glm::vec3(0.15f, 0.15f, 0.15f)); //ancho alto profundidad
+		model = glm::translate(model, glm::vec3(4.0f, 12.5f, 4.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 		
-		//pata 2 de la mesa
+		//cresta
 		model = glm::mat4(1.0f);
-		model = glm::scale(model, glm::vec3(0.35f, 1.0f, 0.35f));
-		model = glm::translate(model, glm::vec3(-3.0f, -0.45f, -1.2f));
+		model = glm::scale(model, glm::vec3(1.5f, 1.5f, 0.90f)); //ancho alto profundidad 
+		model = glm::translate(model, glm::vec3(0.0f, 0.90f, 0.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
-		
-		//pata 3 de la mesa
-		model = glm::mat4(1.0f);
-		model = glm::scale(model, glm::vec3(0.35f, 1.0f, 0.35f));
-		model = glm::translate(model, glm::vec3(3.0f, -0.45f, -1.2f));
+
+		//parte de atras
+		model = glm::mat4(1.0f);                      
+		model = glm::scale(model, glm::vec3(1.5f, 2.85f, 0.45f)); //ancho alto profundidad
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -1.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
-		
-		//pata 4 de la mesa
+
+		//colita
+		model = glm::mat4(1.0f);                       
+		model = glm::scale(model, glm::vec3(0.57f, 0.80f, 0.45f)); //ancho alto profundidad
+		model = glm::translate(model, glm::vec3(0.0f, -0.80f, -1.5f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//Ala izquierda
 		model = glm::mat4(1.0f);
-		model = glm::scale(model, glm::vec3(0.35f, 1.0f, 0.35f));
-		model = glm::translate(model, glm::vec3(-3.0f, -0.45f, 1.2f));
+		model = glm::scale(model, glm::vec3(0.65f, 2.0f, 0.30f)); //ancho alto profundidad
+		model = glm::translate(model, glm::vec3(-1.0f, 0.0f, 1.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//Ala derecha
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.65f, 2.0f, 0.30f)); //ancho alto profundidad
+		model = glm::translate(model, glm::vec3(1.0f, 0.0f, 1.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
